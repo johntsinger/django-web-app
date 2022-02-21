@@ -8,11 +8,11 @@
     <body>
         <h1>Hello Django !</h1>
         <p>Mes groupes préférés sont :</p>
-            <ul>
-                {% for band in bands %}
+        <ul>
+            {% for band in bands %}
                 <li>{{ band.name }}</li>
-                {% endfor %}
-            </ul>
+            {% endfor %}
+        </ul>
         <p>
             J'ai
             {% if bands|length < 5 %}
