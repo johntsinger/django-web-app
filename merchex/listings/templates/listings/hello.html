@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Merchex</title>
+    </head>
+    <body>
+        <h1>Hello Django !</h1>
+        <p>Mes groupes préférés sont :</p>
+            <ul>
+                {% for band in bands %}
+                <li>{{ band.name }}</li>
+                {% endfor %}
+            </ul>
+        <p>
+            J'ai
+            {% if bands|length < 5 %}
+                peu de
+            {% elif bands|length < 10 %}
+                quelques
+            {% else %}
+                beaucoup de
+            {% endif %}
+                groupes préférés.
+        </p>
+    </body>
+</html>
