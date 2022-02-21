@@ -20,5 +20,6 @@ def about(request):
         "listings/about.html")
 
 def contact(request):
-    return HttpResponse('<h1>Contactez nous</h1> <p>Formulaire de contact</p>')
+    return render(request,
+        "listings/contact.html")
 
