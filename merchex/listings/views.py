@@ -7,7 +7,7 @@ def hello(request):
     bands = Band.objects.all()
     return render(request,
         "listings/hello.html",
-        {"bands": bands})
+        context={"bands": bands})
 
 def listings(request):
     listings = Listing.objects.all()
