@@ -16,7 +16,8 @@ def listings(request):
         context={"listings": listings})
 
 def about(request):
-    return HttpResponse('<h1>À propos</h1> <p>Nous adorons merch !</p>')
+    return render(request,
+        "listings/about.html")
 
 def contact(request):
     return HttpResponse('<h1>Contactez nous</h1> <p>Formulaire de contact</p>')
