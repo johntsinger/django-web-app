@@ -13,5 +13,16 @@
                 <li>{{ band.name }}</li>
                 {% endfor %}
             </ul>
+        <p>
+            J'ai
+            {% if bands|length < 5 %}
+                peu de
+            {% elif bands|length < 10 %}
+                quelques
+            {% else %}
+                beaucoup de
+            {% endif %}
+                groupes préférés.
+        </p>
     </body>
 </html>
