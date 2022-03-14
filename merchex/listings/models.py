@@ -38,3 +38,6 @@ class Listing(models.Model):
         null=True
     )
     type = models.fields.CharField(choices=Type.choices, max_length=5)
+
+    def __str__(self):
+        return f'{self.title}'
