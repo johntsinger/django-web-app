@@ -24,7 +24,7 @@ class Band(models.Model):
 
 class Listing(models.Model):
 
-    class Type(models.TextChoices):
+    class ListingType(models.TextChoices):
         RECORDS = 'RE'
         CLOTHING = 'CL'
         POSTERS = 'PO'
@@ -37,7 +37,7 @@ class Listing(models.Model):
         validators=[MinValueValidator(1900), MaxValueValidator(2022)],
         null=True
     )
-    type = models.fields.CharField(choices=Type.choices, max_length=5)
+    type = models.fields.CharField(choices=ListingType.choices, max_length=5)
     band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
