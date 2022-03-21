@@ -10,9 +10,10 @@ def band_list(request):
         context={"bands": bands})
 
 def band_detail(request, band_id):
+    band = Band.objects.get(id=band_id)
     return render(request,
         'listings/band_detail.html',
-        {'band_id': band_id})
+        {'band': band})
 
 def listings(request):
     listings = Listing.objects.all()
