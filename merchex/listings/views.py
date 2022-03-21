@@ -3,10 +3,10 @@ from django.http import HttpResponse
 from listings.models import Band, Listing
 
 
-def hello(request):
+def band_list(request):
     bands = Band.objects.all()
     return render(request,
-        "listings/hello.html",
+        "listings/band_list.html",
         context={"bands": bands})
 
 def listings(request):
