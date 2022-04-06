@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.mail import send_mail
 from listings.models import Band, Listing
 from listings.forms import ContactUsForm
 
@@ -35,6 +36,16 @@ def about(request):
 def contact(request):
     if request.method == 'POST':
         form = ContactUsForm(request.POST)
+
+        if form.is_valid():
+            send_mail(
+                subject=f'Message from \
+{form.cleaned_data["name"] or "anonyme"} via MerchEx Contact Us form',
+                message=form.cleaned_data['message'],
+                from_email=form.cleaned_data['email'],
+                recipient_list=['admin@merchex.xyz']
+            )
+
     else:
         form = ContactUsForm()
 
