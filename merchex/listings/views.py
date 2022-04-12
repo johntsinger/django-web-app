@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.shortcuts import redirect
 from listings.models import Band, Listing
-from listings.forms import ContactUsForm
+from listings.forms import ContactUsForm, BandForm
 
 
 def band_list(request):
@@ -60,5 +60,7 @@ def email_sent(request):
         "listings/email_sent.html")
 
 def band_create(request):
+    form = BandForm()
     return render(request,
-        "listings/band_create.html")
+        "listings/band_create.html",
+        {'form': form})
