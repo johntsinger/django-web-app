@@ -73,3 +73,7 @@ def band_create(request):
     return render(request,
         "listings/band_create.html",
         {'form': form})
+
+def listing_create(request):
+    return render(request,
+        "listing/listing_create.html")
