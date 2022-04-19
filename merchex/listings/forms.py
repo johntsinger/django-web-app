@@ -1,6 +1,5 @@
 from django import forms
-from listings.models import Band
-from listings.models import Listing
+from listings.models import Band, Listing
 
 
 class ContactUsForm(forms.Form):
@@ -19,4 +18,4 @@ class BandForm(forms.ModelForm):
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        exclude = ('sold')
+        exclude = ('sold',)
