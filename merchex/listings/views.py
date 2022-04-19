@@ -75,7 +75,7 @@ def band_create(request):
         {'form': form})
 
 def listing_create(request):
-    if request == 'POST':
+    if request.method == 'POST':
         form = ListingForm(request.POST)
         if form.is_valid():
             listing = form.save()
