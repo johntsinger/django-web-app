@@ -75,7 +75,14 @@ def band_create(request):
         {'form': form})
 
 def listing_create(request):
-    form = ListingForm()
+    if request == 'POST':
+        form = ListingForm(request.POST)
+        if form.is_valid():
+            listing = form.save()
+            return redirect('listing-detail', listing.id)
+    else:
+        form = ListingForm()
+
     return render(request,
         "listings/listing_create.html",
         {'form': form})
