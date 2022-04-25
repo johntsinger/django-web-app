@@ -4,4 +4,10 @@
 
 <h1>Mettre à jour un groupe</h1>
 
-{% endblock}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Envoyer">
+</form>
+
+{% endblock %}
