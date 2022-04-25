@@ -4,4 +4,10 @@
 
 <h1>Mettre à jour un article</h1>
 
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="Envoyer">
+</form>
+
 {% endblock %}

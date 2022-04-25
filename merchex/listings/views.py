@@ -103,6 +103,8 @@ def band_update(request, band_id):
         {'form': form})
 
 def listing_update(request, listing_id):
+    listing = Listing.objects.get(id=listing_id)
+    form = ListingForm(instance=listing)
     return render(request,
         "listings/listing_update.html",
-        )
+        {'form': form})
