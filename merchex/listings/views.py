@@ -86,3 +86,7 @@ def listing_create(request):
     return render(request,
         "listings/listing_create.html",
         {'form': form})
+
+def band_update(request, band_id):
+    return render(request,
+        "listings/band_update.html",)
