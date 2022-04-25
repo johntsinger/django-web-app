@@ -89,8 +89,14 @@ def listing_create(request):
 
 def band_update(request, band_id):
     band = Band.objects.get(id=band_id)
-    # On pré-remplit le formulaire avec un groupe existant
-    form = BandForm(instance=band)
+    if request.method == 'POST':
+        form = BandForm(request.POST, instance=band)
+        if form.is_valid():
+            form.save()
+            return redirect('band-detail', band.id)
+    else:
+        # On pré-remplit le formulaire avec un groupe existant
+        form = BandForm(instance=band)
 
     return render(request,
         "listings/band_update.html",
