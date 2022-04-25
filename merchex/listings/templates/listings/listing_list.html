@@ -1,5 +1,7 @@
 {% extends 'listings/base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <h1>Listings</h1>
@@ -10,7 +12,13 @@
 
 <ul>
     {% for listing in listings %}
-        <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }} {{ listing.band }}</a></li>
+        <li>
+            <a href="{% url 'listing-detail' listing.id %}">{{ listing.title }} {{ listing.band }}</a>
+            <a href="{% url 'listing-update' listing.id %}">
+                <img class="icon" src="{% static 'listings/img/modifier.png' %}" alt="Modifier"
+                title='Modifier'>
+            </a>
+        </li>
     {% endfor %}
 </ul>
 
