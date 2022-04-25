@@ -101,3 +101,8 @@ def band_update(request, band_id):
     return render(request,
         "listings/band_update.html",
         {'form': form})
+
+def listing_update(request, listing_id):
+    return render(request,
+        "listings/listing_update.html",
+        )
