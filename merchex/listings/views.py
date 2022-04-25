@@ -104,7 +104,15 @@ def band_update(request, band_id):
 
 def listing_update(request, listing_id):
     listing = Listing.objects.get(id=listing_id)
-    form = ListingForm(instance=listing)
+
+    if request.method == "POST":
+        form = ListingForm(request.POST, instance=listing)
+        if form.is_valid():
+            form.save()
+            return redirect("listing-detail", listing.id)
+    else:
+        form = ListingForm(instance=listing)
+        
     return render(request,
         "listings/listing_update.html",
         {'form': form})
